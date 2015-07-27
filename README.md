@@ -6,19 +6,19 @@ The purpose of this application is to allow a user to find the quotient when div
 
 
 #Features:
-*Develops chart demonstrating synthetic division (with coefficients and consideration of monic expressions)
-*Can divide any two polynomials regardless of power, although reasonable division (aka dividend's degree > divisor's degree & degrees <1000 recommended)
-*Chart automatically resizes based off of coefficients
-*Two chart design, in two perspectives, with one output via Console and another via JTable to ensure user can comprehend data
-*Ability to export table via File IO (*.txt)
-*Analyzes table, and retrieves resultant ƒ(x) representing quotient and remainder
-*Easy to use graphical user interface
-*Identifies terms, sorts terms using built-in time complexity: O(n) = nlog(n) Collections.sort() by extending Comparable<T> class
-*Automatically fills terms if required to ensure proper synthetic division occurs using filler algorithm
-*Dynamically adjusts array size using ArrayList<Term>
-*OOP (Object Oriented Programming) Paradigm designed to encapsulate data and be upgradable, usable through Console
-*Efficient algorithm
-*Developed in Java (multi-platform)
+* Develops chart demonstrating synthetic division (with coefficients and consideration of monic expressions)
+* Can divide any two polynomials regardless of power, although reasonable division (aka dividend's degree > divisor's degree & degrees <1000 recommended)
+* Chart automatically resizes based off of coefficients
+* Two chart design, in two perspectives, with one output via Console and another via JTable to ensure user can comprehend data
+* Ability to export table via File IO (*.txt)
+* Analyzes table, and retrieves resultant ƒ(x) representing quotient and remainder
+* Easy to use graphical user interface
+* Identifies terms, sorts terms using built-in time complexity: O(n) = nlog(n) Collections.sort() by extending Comparable<T> class
+* Automatically fills terms if required to ensure proper synthetic division occurs using filler algorithm
+* Dynamically adjusts array size using ArrayList<Term>
+* OOP (Object Oriented Programming) Paradigm designed to encapsulate data and be upgradable, usable through Console
+* Efficient algorithm
+* Developed in Java (multi-platform)
 JavaDoced Index files for program documentation
 #OOP Design:
 ###Solver class:
