@@ -4,11 +4,7 @@
  * @version 1.0.0.2
  * 
 */
-
-import java.io.*;
 import java.util.*;
-import java.math.*;
-
 
 public class Bracket{
  ArrayList<Term> terms;

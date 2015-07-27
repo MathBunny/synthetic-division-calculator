@@ -6,10 +6,6 @@
 */
 import java.io.*;
 import java.util.*;
-import java.lang.*;
-import java.awt.*;
-import java.awt.geom.*;
-import java.math.*;
 import javax.swing.*;
 
 
@@ -70,16 +66,6 @@ public class Solver{
     }
   }
   
-  /** This method outputs the object array */
-  private static void outputObjectArray(Object [] [] arr){
-    System.out.println("*********\nObject Solution:");
-    for(int x = 0; x < arr[0].length; x++){
-      for(int y = 0; y < arr.length; y++){
-        System.out.print(arr[y][x] + " ");
-      }
-      System.out.println();
-    }
-  }
   
   /** This outputs the array for the table */
   public static Object [] [] getTableData(double [] [] board, double [] multiSide, double [] [] res){
@@ -215,10 +201,6 @@ public class Solver{
     return finalAns;
     
     // for(int qq  = 0; qq < 
-    
-    
-    
-    
   }
   
   /** This method specializes into solving quadratics quickly.

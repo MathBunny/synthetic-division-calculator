@@ -4,15 +4,10 @@
  * @version 1.0.0.2
  * 
 */
-import java.io.*;
 import java.util.*;
-import java.lang.*;
 import java.awt.*;
-import java.awt.geom.*;
-import java.math.*;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
-import java.awt.Event;
 import java.awt.event.*;
 
 
@@ -90,13 +85,11 @@ public class SyntheticApp extends JPanel implements ActionListener{
     co.setVisible(true);
     co.repaint();
     co.validate();
-    //a = new Container();
     a.add(co);
     
     scrollPane.getViewport().setOpaque(false);
     scrollPane.setBorder(null);
     
-    //a.add(co);
     co.repaint();
     co.validate();
     
@@ -105,9 +98,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
   
   /** This method updates the table entries */
   public static void updateTableEntries(double [] [] initiBoard, double [] leftPane, double [][] resBoard, int focalPoint){
-    //JOptionPane.showMessageDialog (null, "1Made it", "Error: Blank field", JOptionPane.WARNING_MESSAGE);
     Object [] [] finalTable = new Object[2 + initiBoard.length][leftPane.length+3];
-    //JOptionPane.showMessageDialog (null, "2Made it", "Error: Blank field", JOptionPane.WARNING_MESSAGE);
     //seperate by *
     for(int i = 1; i < leftPane.length; i++){
       finalTable[0][i] = leftPane[i] + "";
@@ -140,23 +131,16 @@ public class SyntheticApp extends JPanel implements ActionListener{
     for(int i = 0; i < initiBoard.length; i++){
       columns[2 + i] = "C" + (i+1); 
     }
-    //scrollPane = new JScrollPane(table);
     table.setFillsViewportHeight(true);
-    //table = new JTable(finalTable, columns); THIS ONEE
-    //table.setModel(new JTable(finalTable, columns));
     table.repaint();
-    //table.fireTableDataChanged();
     table.revalidate();
     scrollPane.repaint();
     scrollPane.validate();
     co.repaint();
     co.validate();
-    //j.add(scrollPane); thisss
-    //j.add(scrollPane);
     
     j.validate();
     j.repaint();
-    //JOptionPane.showMessageDialog (null, "Made it", "Error: Blank field", JOptionPane.WARNING_MESSAGE);
   }
   
   
@@ -171,18 +155,15 @@ public class SyntheticApp extends JPanel implements ActionListener{
     if (divs.equals("") || divi.equals("")){
           JOptionPane.showMessageDialog (null, "Error: You cannot leave a field blank!", "Error: Blank field", JOptionPane.WARNING_MESSAGE); 
     }
-    else
-        {
+    else{
           div1 = divs;
           div2 = divi;
           ArrayList<Term> divident = new ArrayList<Term>();
           ArrayList<Term> divisor = new ArrayList<Term>();
           divident = generateTerms(divs);
           divisor = generateTerms(divi);
-          //JOptionPane.showMessageDialog (null, "Made it", "Error: Blank field", JOptionPane.WARNING_MESSAGE); 
           Collections.sort(divident);
           Collections.sort(divisor);
-          //JOptionPane.showMessageDialog (null, "Made it", "Error: Blank field", JOptionPane.WARNING_MESSAGE); 
           divident = fillTerms(divident, Utility.findGreatestExponent(divident));
           divisor = fillTerms(divisor, Utility.findGreatestExponent(divisor));
           
@@ -194,15 +175,10 @@ public class SyntheticApp extends JPanel implements ActionListener{
           name=   JOptionPane.showInputDialog ("Please enter your desired filename." ); 
           
           Solver.solveEquation(divident, divisor, true);
-          //Solver.solveEquation(divident, divisor);
-         // solveByDividingQuadratic
-          //JOptionPane.showMessageDialog (null, "Made it", "Error: Blank field", JOptionPane.WARNING_MESSAGE);
         }
-        
   }
   
-  /** This method generates the constructor & JFrame 
-    *  */
+  /** This method generates the constructor & JFrame */
   public SyntheticApp(){
     
     j.setSize(new Dimension(640, 550));
@@ -241,7 +217,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
     exit.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e)
       {
-        j.dispose();
+        System.exit(0);
         
       }
     });
@@ -315,19 +291,6 @@ public class SyntheticApp extends JPanel implements ActionListener{
     JLabel div = new JLabel("Enter the dividend:");
     JLabel div2 = new JLabel("Enter the divisor:");
     
-    
-    Object [][] data = {{0, '*', 0, 0, 0, 0}, {0, '*', 0, 0, 0, 0}, {0, '*', 0, 0, 0, 0}};
-    String [] title = {"Left Side", "*", "Coefficient #1", "Coefficient #2", "Coefficient #3", "Coefficient #4"};
-    
-    /*
-    table = new JTable(data, title);
-    
-    scrollPane = new JScrollPane(table);
-    table.setVisible(true);
-    scrollPane.setVisible(true);
-    */
-    
-    //a.add(table);
     a.add(b1);
     a.add(b2);
     a.add(b3);
@@ -352,33 +315,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
     div2.setBounds(7, 50, 200, 30);
     dividendJ.setBounds(220, 20, 400, 30);
     divisorJ.setBounds(220, 50, 400, 30);
-    
-    /*
-    co = new Container();
-    co.add(scrollPane);
-    co.setBounds(7, 90, 600, 300);
-    scrollPane.setBounds(7, 10, 600, 300);
-    co.setVisible(true);
-    co.repaint();
-    co.validate();
-    
-    scrollPane.getViewport().setOpaque(false);
-    scrollPane.setBorder(null);
-    
-    //a.add(co);
-    co.repaint();
-    co.validate();
-    */
-    
-    /* Temporary JFrame? */
-    /*JFrame temp = new JFrame("Synthetic Division - Chart");
-    temp.add(scrollPane);
-    temp.setVisible(true);
-    temp.setSize(400, 300);*/
-    
-    
     j.add(a);
-    //j.add(co);
     j.repaint();
     j.validate();
   }
@@ -391,8 +328,6 @@ public class SyntheticApp extends JPanel implements ActionListener{
     for(int i = 0; i < terms.size(); i++){
       if (terms.get(i).getPower() != currentEx){
         ret.add(new Term(currentEx, 0));  //add new 0 ^ x
-        //System.out.println("POWER: " + currentEx);
-        //fails here for some reason...
         i--;
       } 
       else
@@ -400,7 +335,6 @@ public class SyntheticApp extends JPanel implements ActionListener{
       //i++;
       currentEx--;
       if (currentEx < 0){
-        //System.out.println("STOPPED");
         break; //do you need to do this?
       }
     }
@@ -442,10 +376,8 @@ public class SyntheticApp extends JPanel implements ActionListener{
       }
       exponentS = ((exponentS.equals("") && foundX) ? ("1") : ((exponentS.equals("") && !foundX) ? ("0") : (exponentS)));
       coefficientS = ((coefficientS.equals("") && foundX) ? ("1") : ((coefficientS.equals("") && !foundX) ? ("0") : (coefficientS)));
-      //System.out.println(coefficientS);
       ret.add(new Term(Integer.parseInt(exponentS), (isNegative) ? (Double.parseDouble(coefficientS) * -1) : (Double.parseDouble(coefficientS))));
     }
-    //System.out.println("Size: " + ret.size());
     return ret;
   }
   

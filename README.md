@@ -19,7 +19,8 @@ The purpose of this application is to allow a user to find the quotient when div
 * OOP (Object Oriented Programming) Paradigm designed to encapsulate data and be upgradable, usable through Console
 * Efficient algorithm
 * Developed in Java (multi-platform)
-JavaDoced Index files for program documentation
+* JavaDoced Index files for program documentation
+
 #OOP Design:
 ###Solver class:
 Solves by returning three Arrays (one 1D, two 2D)
