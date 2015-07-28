@@ -37,5 +37,5 @@ The other classes are smaller / insignificant in the larger spectrum.
 #Known issues:
 Sometimes may be unstable if the dividend's degree is smaller than the degree of the divisor (however the program still formulates the table) resulting in a odd remainder. 
 
-#YouTube Demonstration:
+##YouTube Demonstration:
 [Click here](https://www.youtube.com/watch?v=G-ySgKVjx-Y)
