@@ -3,7 +3,7 @@
  * @author Horatiu Lazu
  * @version 1.0.0.2
  * 
-*/
+ */
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
@@ -37,7 +37,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
   /** This method is the main mthod */
   public static void main (String [] args){
     JOptionPane.showMessageDialog (null, "Welcome to Synthetic Division Calculator, made by Horatiu Lazu.\nTo begin, entered the simplified version of the expression in the appropriate textboxes." + 
-                                     "\nYou will separate terms by a space, followed by the + or - like so: x^2 +4x +4\nEnjoy!", "Welcome: Instructions", JOptionPane.WARNING_MESSAGE);
+                                   "\nYou will separate terms by a space, followed by the + or - like so: x^2 +4x +4\nEnjoy!", "Welcome: Instructions", JOptionPane.WARNING_MESSAGE);
     new SyntheticApp();
   }
   
@@ -153,29 +153,29 @@ public class SyntheticApp extends JPanel implements ActionListener{
   /** This method exports the data */
   public  void export(String divs, String divi){
     if (divs.equals("") || divi.equals("")){
-          JOptionPane.showMessageDialog (null, "Error: You cannot leave a field blank!", "Error: Blank field", JOptionPane.WARNING_MESSAGE); 
+      JOptionPane.showMessageDialog (null, "Error: You cannot leave a field blank!", "Error: Blank field", JOptionPane.WARNING_MESSAGE); 
     }
     else{
-          div1 = divs;
-          div2 = divi;
-          ArrayList<Term> divident = new ArrayList<Term>();
-          ArrayList<Term> divisor = new ArrayList<Term>();
-          divident = generateTerms(divs);
-          divisor = generateTerms(divi);
-          Collections.sort(divident);
-          Collections.sort(divisor);
-          divident = fillTerms(divident, Utility.findGreatestExponent(divident));
-          divisor = fillTerms(divisor, Utility.findGreatestExponent(divisor));
-          
-          
-          if (Utility.findGreatestExponent(divisor) > 2){
-            JOptionPane.showMessageDialog (null, "Error: You cannot divide by a non-quadratic in this version.", "Error: Divisor degree is too large", JOptionPane.WARNING_MESSAGE); 
-            return;
-          }
-          name=   JOptionPane.showInputDialog ("Please enter your desired filename." ); 
-          
-          Solver.solveEquation(divident, divisor, true);
-        }
+      div1 = divs;
+      div2 = divi;
+      ArrayList<Term> divident = new ArrayList<Term>();
+      ArrayList<Term> divisor = new ArrayList<Term>();
+      divident = generateTerms(divs);
+      divisor = generateTerms(divi);
+      Collections.sort(divident);
+      Collections.sort(divisor);
+      divident = fillTerms(divident, Utility.findGreatestExponent(divident));
+      divisor = fillTerms(divisor, Utility.findGreatestExponent(divisor));
+      
+      
+      if (Utility.findGreatestExponent(divisor) > 2){
+        JOptionPane.showMessageDialog (null, "Error: You cannot divide by a non-quadratic in this version.", "Error: Divisor degree is too large", JOptionPane.WARNING_MESSAGE); 
+        return;
+      }
+      name=   JOptionPane.showInputDialog ("Please enter your desired filename." ); 
+      
+      Solver.solveEquation(divident, divisor, true);
+    }
   }
   
   /** This method generates the constructor & JFrame */

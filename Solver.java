@@ -3,7 +3,7 @@
  * @author Horatiu Lazu
  * @version 1.0.0.2
  * 
-*/
+ */
 import java.io.*;
 import java.util.*;
 import javax.swing.*;
@@ -304,7 +304,7 @@ public class Solver{
   }
   
   /** Insane amount of ternary operators.
-   * Essentially outputs the solution */
+    * Essentially outputs the solution */
   public static void outputPxRx(int expOne, int expTwo, double [][] res){
     String quot = "";
     String rem = "";
