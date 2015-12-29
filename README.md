@@ -39,3 +39,6 @@ Sometimes may be unstable if the dividend's degree is smaller than the degree of
 
 ##YouTube Demonstration:
 [Click here](https://www.youtube.com/watch?v=G-ySgKVjx-Y)
+
+##Screenshot:
+![Screenshot](http://software.horatiulazu.paperplane.io/SyntheticDivision3.png "Screenshot")
