@@ -376,7 +376,12 @@ public class SyntheticApp extends JPanel implements ActionListener{
       }
       exponentS = ((exponentS.equals("") && foundX) ? ("1") : ((exponentS.equals("") && !foundX) ? ("0") : (exponentS)));
       coefficientS = ((coefficientS.equals("") && foundX) ? ("1") : ((coefficientS.equals("") && !foundX) ? ("0") : (coefficientS)));
+      try{
       ret.add(new Term(Integer.parseInt(exponentS), (isNegative) ? (Double.parseDouble(coefficientS) * -1) : (Double.parseDouble(coefficientS))));
+      }
+      catch(NumberFormatException e){
+        JOptionPane.showMessageDialog (null, "Error: Invalid formatting! Please check your formatting.", "Invalid Formatting", JOptionPane.WARNING_MESSAGE);
+      }
     }
     return ret;
   }

@@ -251,6 +251,8 @@ public class Solver{
   public static void solveEquation(ArrayList<Term> divident, ArrayList<Term> divisor, boolean shouldPrint){
     /* Time to get the coefficients and set up the arrays. */
     double [] [] board = new double [divident.size()][divisor.size()];
+    if (board[0].length == 0) //RETURN IF THE ARRAY HAS NOTHING IN IT
+      return;
     /* Let's fill the top of the board with the appropriate initial values. */
     for(int i = 0; i < divident.size(); i++){
       //System.out.println("COEFF: " + divident.get(i).getCoefficient());
