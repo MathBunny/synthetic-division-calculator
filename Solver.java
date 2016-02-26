@@ -8,8 +8,6 @@ import java.io.*;
 import java.util.*;
 import javax.swing.*;
 
-
-
 public class Solver{
   
   /** @param q String This is the quotient */
@@ -195,12 +193,7 @@ public class Solver{
       }
       System.out.println();
     }
-    
-    
-    
     return finalAns;
-    
-    // for(int qq  = 0; qq < 
   }
   
   /** This method specializes into solving quadratics quickly.
