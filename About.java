@@ -21,7 +21,7 @@ public class About{
     JButton done = new JButton("Quit");
     JLabel dev = new JLabel("Application developed by: Horatiu Lazu");
     JLabel dev2 = new JLabel("Copyright: 2015 SoftwareEngenius");
-    JLabel dev3 = new JLabel("Version: 1.0.0.2");
+    JLabel dev3 = new JLabel("Version: 1.1.0.0");
     JLabel dev4 = new JLabel("Purpose: Demonstrate Synthetic Division");
     
     done.addActionListener(new ActionListener() {
