@@ -8,49 +8,54 @@
 import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
+import javax.imageio.ImageIO;
+import java.io.*;
 
-
-
-
-public class About{
+public class About extends JFrame{
+  private Image backgroundImg;
+  
+  private void fetchImages(){
+    try{
+      backgroundImg = ImageIO.read(new File("images/AboutBackground.png"));
+    }
+    catch(IOException e){
+      JOptionPane.showMessageDialog(this, "Error: Could not find required image files!");
+    }
+  }
+  
+  public void paint(Graphics g){
+    super.paint(g);
+    fetchImages();
+    
+    g.drawImage(backgroundImg, 0, 20, null);
+  }
+  
   
   /** This is the class constructor, which sets up the GUI and adds the required buttons and labels. */
   public About(){
-    final JFrame j = new JFrame("About: Synthetic Divisor");
+    super("About: Synthetic Division");
     Container a = new Container();
     JButton done = new JButton("Quit");
-    JLabel dev = new JLabel("Application developed by: Horatiu Lazu");
-    JLabel dev2 = new JLabel("Copyright: 2015 SoftwareEngenius");
-    JLabel dev3 = new JLabel("Version: 1.1.0.0");
-    JLabel dev4 = new JLabel("Purpose: Demonstrate Synthetic Division");
     
     done.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e)
       {
         //Execute when button is pressed
-        j.dispose();
-        j.setVisible(false);
+        dispose();
+        setVisible(false);
       }
     });
+
+    done.setBounds(68, 310, 115, 30);
     
-    
-    dev.setBounds(7, 5, 300, 20);
-    dev2.setBounds(7, 25, 300, 20);
-    dev3.setBounds(7, 45, 300, 20);
-    dev4.setBounds(7, 65, 300, 20);
-    done.setBounds(90, 100, 200, 30);
-    
-    a.add(dev);
-    a.add(dev2);
-    a.add(dev3);
-    a.add(dev4);
     a.add(done);
     
-    j.add(a);
-    j.setSize(new Dimension(400, 150));
-    j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    j.setVisible(true);
-    
+    add(a);
+    setSize(new Dimension(257, 390));
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setResizable(false);
+    setVisible(true);
+    repaint();
     
   }
 }

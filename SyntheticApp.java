@@ -24,7 +24,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
   /** @param double [] [] data This stores the data */
   static double  [] [] data;
   /** @param JFrame j This stores the JFrame */
-  static final JFrame j = new JFrame("Synthetic Division - Programmed by: Horatiu Lazu");
+  static final JFrame j = new JFrame("Synthetic Division Calculator - Programmed by: Horatiu Lazu");
   /** @param boolean exists This boolean stores if the variable exists */
   static boolean exists = false;
   /** @param name String This stores the file name. */
@@ -34,10 +34,9 @@ public class SyntheticApp extends JPanel implements ActionListener{
   /** @param div2 String this stores division 2.*/
   static String div2;
   
-  /** This method is the main mthod */
+  /** This method is the main method */
   public static void main (String [] args){
-    JOptionPane.showMessageDialog (null, "Welcome to Synthetic Division Calculator, made by Horatiu Lazu.\nTo begin, entered the simplified version of the expression in the appropriate textboxes." + 
-                                   "\nYou will separate terms by a space, followed by the + or - like so: x^2 +4x +4\nEnjoy!", "Welcome: Instructions", JOptionPane.WARNING_MESSAGE);
+    //JOptionPane.showMessageDialog (null, "Welcome! To use this app, simply enter your polynomials with spaces, like x^2 +2x +1. Enjoy!", "Welcome: Instructions", JOptionPane.WARNING_MESSAGE);
     new SyntheticApp();
   }
   
@@ -180,7 +179,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
   
   /** This method generates the constructor & JFrame */
   public SyntheticApp(){
-    
+    j.setResizable(false);
     j.setSize(new Dimension(640, 550));
     j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     j.setVisible(true);
@@ -203,7 +202,6 @@ public class SyntheticApp extends JPanel implements ActionListener{
       {
         /* Do magic here */
         export(dividendJ.getText(), divisorJ.getText());
-        
       }
     });
     
@@ -218,7 +216,6 @@ public class SyntheticApp extends JPanel implements ActionListener{
       public void actionPerformed(ActionEvent e)
       {
         System.exit(0);
-        
       }
     });
     
@@ -230,8 +227,6 @@ public class SyntheticApp extends JPanel implements ActionListener{
     jM.add(help);
     
     j.setJMenuBar(jM);
-    
-    
     
     JButton b1 = new JButton("Generate Table");
     b1.addActionListener(new ActionListener() {
@@ -377,7 +372,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
       exponentS = ((exponentS.equals("") && foundX) ? ("1") : ((exponentS.equals("") && !foundX) ? ("0") : (exponentS)));
       coefficientS = ((coefficientS.equals("") && foundX) ? ("1") : ((coefficientS.equals("") && !foundX) ? ("0") : (coefficientS)));
       try{
-      ret.add(new Term(Integer.parseInt(exponentS), (isNegative) ? (Double.parseDouble(coefficientS) * -1) : (Double.parseDouble(coefficientS))));
+        ret.add(new Term(Integer.parseInt(exponentS), (isNegative) ? (Double.parseDouble(coefficientS) * -1) : (Double.parseDouble(coefficientS))));
       }
       catch(NumberFormatException e){
         JOptionPane.showMessageDialog (null, "Error: Invalid formatting! Please check your formatting.", "Invalid Formatting", JOptionPane.WARNING_MESSAGE);

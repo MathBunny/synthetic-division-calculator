@@ -15,6 +15,8 @@ public class Solver{
   /** @param r String This is the remainder */
   public static String r = "";
   
+  private static String sol = "";
+  
   /** This method outputs the board */
   private static void drawBoard(double [] [] board, double [] multiSide, double [][] res){
     System.out.println("CONSOLE SOLUTION: ");
@@ -57,6 +59,7 @@ public class Solver{
         } 
         out.println();
       }
+      out.println(sol);
       out.close();
     }
     catch(IOException e){
@@ -329,6 +332,7 @@ public class Solver{
         }
       }
     }
-    JOptionPane.showMessageDialog (null, "Solution: Q(x) = " + quot + "\nR(x) = " + ((rem.equals("")) ? ("None") : (rem)), "Solution", JOptionPane.WARNING_MESSAGE);
+    JOptionPane.showMessageDialog (null, "Solution: \nQ(x) = " + quot + "\nR(x) = " + ((rem.equals("")) ? ("None") : (rem)), "Solution", JOptionPane.WARNING_MESSAGE);
+    sol =  ("Solution: \nQ(x) = " + quot + "\nR(x) = " + ((rem.equals("")) ? ("None") : (rem)));
   }
 }
