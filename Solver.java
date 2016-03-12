@@ -244,7 +244,7 @@ public class Solver{
   }
   
   /** This method SOLVES the equations! */
-  public static void solveEquation(ArrayList<Term> divident, ArrayList<Term> divisor, boolean shouldPrint){
+  public static void solveEquation(ArrayList<Term> divident, ArrayList<Term> divisor, boolean shouldPrint, boolean hasGUI){
     /* Time to get the coefficients and set up the arrays. */
     double [] [] board = new double [divident.size()][divisor.size()];
     if (board[0].length == 0) //RETURN IF THE ARRAY HAS NOTHING IN IT
@@ -283,18 +283,16 @@ public class Solver{
           if (y <= 0 || x > divident.size() - 1) //<= ?? // -2 or -1 //<= 0
             break;
           board[x][y] = res[qq][1] * multiSide[y];
-          if (board[x][y] == 0){
-            System.out.println(res[qq][1] + " this one"); 
-          }
           x++;
           y--;
         }
       }
     }
-    outputPxRx(Utility.findGreatestExponent(divident), Utility.findGreatestExponent(divisor), res);
-    drawBoard(board, multiSide, res);
-    
-    getTableData(board, multiSide, res);
+    outputPxRx(Utility.findGreatestExponent(divident), Utility.findGreatestExponent(divisor), res, hasGUI);
+    if (hasGUI){
+      drawBoard(board, multiSide, res);
+      getTableData(board, multiSide, res);
+    }
     if (shouldPrint)
       printAns(board, multiSide, res);
     //outputAnswer(res, divident.get(0).getPower() - divisor.get(0).getPower());
@@ -303,7 +301,7 @@ public class Solver{
   
   /** Insane amount of ternary operators.
     * Essentially outputs the solution */
-  public static void outputPxRx(int expOne, int expTwo, double [][] res){
+  public static void outputPxRx(int expOne, int expTwo, double [][] res, boolean shouldOutput){
     String quot = "";
     String rem = "";
     int currEx = expOne - expTwo;
@@ -332,7 +330,12 @@ public class Solver{
         }
       }
     }
-    JOptionPane.showMessageDialog (null, "Solution: \nQ(x) = " + quot + "\nR(x) = " + ((rem.equals("")) ? ("None") : (rem)), "Solution", JOptionPane.WARNING_MESSAGE);
+    if (shouldOutput)
+      JOptionPane.showMessageDialog (null, "Solution: \nQ(x) = " + quot + "\nR(x) = " + ((rem.equals("")) ? ("None") : (rem)), "Solution", JOptionPane.WARNING_MESSAGE);
     sol =  ("Solution: \nQ(x) = " + quot + "\nR(x) = " + ((rem.equals("")) ? ("None") : (rem)));
+  }
+  
+  public static String getSolution(){
+    return sol;
   }
 }

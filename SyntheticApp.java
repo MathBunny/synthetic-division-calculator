@@ -159,12 +159,12 @@ public class SyntheticApp extends JPanel implements ActionListener{
       div2 = divi;
       ArrayList<Term> divident = new ArrayList<Term>();
       ArrayList<Term> divisor = new ArrayList<Term>();
-      divident = generateTerms(divs);
-      divisor = generateTerms(divi);
+      divident = Utility.generateTerms(divs);
+      divisor = Utility.generateTerms(divi);
       Collections.sort(divident);
       Collections.sort(divisor);
-      divident = fillTerms(divident, Utility.findGreatestExponent(divident));
-      divisor = fillTerms(divisor, Utility.findGreatestExponent(divisor));
+      divident = Utility.fillTerms(divident, Utility.findGreatestExponent(divident));
+      divisor = Utility.fillTerms(divisor, Utility.findGreatestExponent(divisor));
       
       
       if (Utility.findGreatestExponent(divisor) > 2){
@@ -173,7 +173,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
       }
       name=   JOptionPane.showInputDialog ("Please enter your desired filename." ); 
       
-      Solver.solveEquation(divident, divisor, true);
+      Solver.solveEquation(divident, divisor, true, true);
     }
   }
   
@@ -240,14 +240,14 @@ public class SyntheticApp extends JPanel implements ActionListener{
           ArrayList<Term> divident = new ArrayList<Term>();
           ArrayList<Term> divisor = new ArrayList<Term>();
           
-          divident = generateTerms(dividendJ.getText());
-          divisor = generateTerms(divisorJ.getText());
+          divident = Utility.generateTerms(dividendJ.getText());
+          divisor = Utility.generateTerms(divisorJ.getText());
           
           Collections.sort(divident);
           Collections.sort(divisor);
           
-          divident = fillTerms(divident, Utility.findGreatestExponent(divident));
-          divisor = fillTerms(divisor, Utility.findGreatestExponent(divisor));
+          divident = Utility.fillTerms(divident, Utility.findGreatestExponent(divident));
+          divisor = Utility.fillTerms(divisor, Utility.findGreatestExponent(divisor));
           
           if (Utility.findGreatestExponent(divident) < Utility.findGreatestExponent(divisor)){
             JOptionPane.showMessageDialog (null, "Notice; Dividing polynomial with a larger exponent on the base is unsupported / is in beta.", "Notice: Invalid operation.", JOptionPane.WARNING_MESSAGE);
@@ -258,7 +258,7 @@ public class SyntheticApp extends JPanel implements ActionListener{
             return;
           }
           
-          Solver.solveEquation(divident, divisor, false);
+          Solver.solveEquation(divident, divisor, false, true);
         }
       }
     });
@@ -313,72 +313,6 @@ public class SyntheticApp extends JPanel implements ActionListener{
     j.add(a);
     j.repaint();
     j.validate();
-  }
-  
-  /** This method will fill the term with empty values like 0x^0 */
-  public ArrayList<Term> fillTerms(ArrayList<Term> terms, int greatestExponent){
-    ArrayList<Term> ret = new ArrayList<Term> ();
-    
-    int currentEx = greatestExponent;
-    for(int i = 0; i < terms.size(); i++){
-      if (terms.get(i).getPower() != currentEx){
-        ret.add(new Term(currentEx, 0));  //add new 0 ^ x
-        i--;
-      } 
-      else
-        ret.add(terms.get(i));
-      //i++;
-      currentEx--;
-      if (currentEx < 0){
-        break; //do you need to do this?
-      }
-    }
-    return ret;
-  }
-  
-  /** This method will generate terms based off of string input */
-  public ArrayList<Term> generateTerms(String input){
-    StringTokenizer st = new StringTokenizer(input);
-    ArrayList<Term> ret = new ArrayList<Term>();
-    while(st.hasMoreTokens()){
-      String temp = st.nextToken();
-      String coefficientS = "";
-      String exponentS = "";
-      boolean isNegative = false;
-      boolean foundX = false;
-      if (temp.charAt(0) == '-'){
-        isNegative = true;
-      }
-      boolean doneNumerical = false;
-      for(int i = (isNegative) ? (1) : (0); i < temp.length(); i++){
-        if (doneNumerical){
-          if (temp.charAt(i) <= '9' && temp.charAt(i) >= 0){
-            exponentS += temp.charAt(i); 
-          }
-        }
-        else{
-          if (temp.charAt(i) > '9' || temp.charAt(i) < '0' && (temp.charAt(i) != '+') && temp.charAt(i) != '.'){
-            doneNumerical = true;
-            if (temp.charAt(i) == 'x' || temp.charAt(i) == 'X'){
-              foundX = true; 
-            }
-          }
-          else{
-            if (temp.charAt(i) != '+')
-              coefficientS += temp.charAt(i); 
-          }
-        }
-      }
-      exponentS = ((exponentS.equals("") && foundX) ? ("1") : ((exponentS.equals("") && !foundX) ? ("0") : (exponentS)));
-      coefficientS = ((coefficientS.equals("") && foundX) ? ("1") : ((coefficientS.equals("") && !foundX) ? ("0") : (coefficientS)));
-      try{
-        ret.add(new Term(Integer.parseInt(exponentS), (isNegative) ? (Double.parseDouble(coefficientS) * -1) : (Double.parseDouble(coefficientS))));
-      }
-      catch(NumberFormatException e){
-        JOptionPane.showMessageDialog (null, "Error: Invalid formatting! Please check your formatting.", "Invalid Formatting", JOptionPane.WARNING_MESSAGE);
-      }
-    }
-    return ret;
   }
   
 }
