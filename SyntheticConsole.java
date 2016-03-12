@@ -48,12 +48,22 @@ public class SyntheticConsole{
   
   private void outputAnswer(){
     try{
-      System.out.print("******Please enter your filename!******");
+      System.out.println("******Please enter your filename!******");
+      System.out.print("Filename: ");
       String filename = in.readLine();
+      if (!filename.contains(".txt"))
+        filename += ".txt";
       PrintWriter out = new PrintWriter(new FileWriter(filename));
+      out.println("Polynomial: " + polynomial);
+      out.println("Quotient: " + quotient);
+      out.println(Solver.getSolution());
+      out.close();
+      System.out.println("File outputted successfully.");
     }
     catch(IOException e){
-      
+      System.out.println("Error: Input is not valid. Please try again.");
+      outputAnswer();
+      return;
     }
   }
   
