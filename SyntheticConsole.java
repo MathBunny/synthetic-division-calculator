@@ -3,15 +3,17 @@ import java.util.*;
 
 public class SyntheticConsole{
   private BufferedReader in;
+  private String polynomial, quotient;
    
   public SyntheticConsole(){
     try{
       in = new BufferedReader(new InputStreamReader(System.in));
+      System.out.println("\n---------------------------------");
       System.out.println("Welcome to the Synthetic Console! This application will visually demonstrate Synthetic Division, and is not limited to Ruffini's Law!\nDesigned by: Horatiu Lazu\n\nPress any key to continue.");
       in.read();
       while(true){
-        System.out.println("**Main Menu**");
-        System.out.println("1. Divide Synthetically");
+        System.out.println("******Main Menu******");
+        System.out.println("1. Divide Polynomials Synthetically");
         System.out.println("2. Save Previous Results");
         System.out.println("3. Exit");
         System.out.println("Please make your selection.");
@@ -21,10 +23,11 @@ public class SyntheticConsole{
             divideSynthetically();
           }
           else if (select == 2){
-            
+            outputAnswer();
           }
           else if (select == 3){
-            
+            System.out.println("***** Thank you for using Synthetic Division Calculator! *****");
+            System.exit(0);
           }
           else{
             System.out.println("Invalid choice! Press any key to continue.");
@@ -33,8 +36,21 @@ public class SyntheticConsole{
         }
         catch(NumberFormatException nF){
           System.out.println("Error: You have to enter a valid number!");
+          System.out.println("Press any key to continue.");
+          in.read();
         }
       }
+    }
+    catch(IOException e){
+      
+    }
+  }
+  
+  private void outputAnswer(){
+    try{
+      System.out.print("******Please enter your filename!******");
+      String filename = in.readLine();
+      PrintWriter out = new PrintWriter(new FileWriter(filename));
     }
     catch(IOException e){
       
@@ -45,11 +61,13 @@ public class SyntheticConsole{
     try{
       ArrayList<Term> divident = new ArrayList<Term>();
       ArrayList<Term> divisor = new ArrayList<Term>();
-      
-      System.out.println("Please enter your equation.");
-      divident = Utility.generateTerms(in.readLine());
-      System.out.println("Please enter your divident.");
-      divisor = Utility.generateTerms(in.readLine());
+      System.out.print("******Solving by Synthetic Division!******");
+      System.out.print("Please enter your equation: ");
+      polynomial = in.readLine();
+      divident = Utility.generateTerms(polynomial);
+      System.out.print("Please enter your divident: ");
+      quotient = in.readLine();
+      divisor = Utility.generateTerms(quotient);
       
       Collections.sort(divident);
       Collections.sort(divisor);
@@ -68,8 +86,8 @@ public class SyntheticConsole{
       }
       
       Solver.solveEquation(divident, divisor, false, false);
+      System.out.println("---------------------------------");
       System.out.println(Solver.getSolution());
-      System.out.println("------");
       System.out.println("Press any key to continue.");
       in.read();
     }
