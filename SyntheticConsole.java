@@ -71,7 +71,7 @@ public class SyntheticConsole{
     try{
       ArrayList<Term> divident = new ArrayList<Term>();
       ArrayList<Term> divisor = new ArrayList<Term>();
-      System.out.print("******Solving by Synthetic Division!******");
+      System.out.println("******Solving by Synthetic Division!******");
       System.out.print("Please enter your equation: ");
       polynomial = in.readLine();
       divident = Utility.generateTerms(polynomial);
