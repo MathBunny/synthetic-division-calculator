@@ -41,4 +41,4 @@ Sometimes may be unstable if the dividend's degree is smaller than the degree of
 [Click here](https://www.youtube.com/watch?v=G-ySgKVjx-Y)
 
 ##Screenshot:
-![Screenshot](http://software.horatiulazu.paperplane.io/SyntheticDivision3.png "Screenshot")
+![Screenshot](http://horatiulazu.ca/software/images/SyntheticDivision.png "Screenshot")
