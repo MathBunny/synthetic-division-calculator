@@ -43,7 +43,9 @@ public class Utility{
     System.out.print("\n");
   }
   
-  /** This method will fill the term with empty values like 0x^0 */
+  /** This method will fill the term with empty values like 0x^0 
+      @return ArrayList<Term> These are the resultant terms in ArrayList form
+  */
   public static ArrayList<Term> fillTerms(ArrayList<Term> terms, int greatestExponent){
     ArrayList<Term> ret = new ArrayList<Term> ();
     
@@ -64,7 +66,9 @@ public class Utility{
     return ret;
   }
   
-  /** This method will generate terms based off of string input */
+  /** This method will generate terms based off of string input
+    @return ArrayList<Term> These are the terms returned from the generatino
+   */
   public static ArrayList<Term> generateTerms(String input){
     StringTokenizer st = new StringTokenizer(input);
     ArrayList<Term> ret = new ArrayList<Term>();

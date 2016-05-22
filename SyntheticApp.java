@@ -36,12 +36,11 @@ public class SyntheticApp extends JPanel implements ActionListener{
   
   /** This method is the main method */
   public static void main (String [] args){
-    //JOptionPane.showMessageDialog (null, "Welcome! To use this app, simply enter your polynomials with spaces, like x^2 +2x +1. Enjoy!", "Welcome: Instructions", JOptionPane.WARNING_MESSAGE);
     new SyntheticApp();
   }
   
   /** This method flips the array */
-  public static Object [] []  flipArr(Object [] [] gArr){
+  public Object [] []  flipArr(Object [] [] gArr){
     Object [] [] ret = new Object[gArr[0].length][gArr.length];
     for(int x = 0; x < gArr.length; x++){
       for(int y = 0; y < gArr[0].length; y++){

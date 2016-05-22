@@ -1,11 +1,10 @@
 # Synthetic Division Calculator
-##Developed by: Horatiu Lazu
 
-#Purpose
+##Purpose
 The purpose of this application is to allow a user to find the quotient when dividing two polynomials - one by another. This application uses a GUI to do so, and uses a JTable to illustrate Ruffini's Law at work.
 
 
-#Features:
+##Features
 * Develops chart demonstrating synthetic division (with coefficients and consideration of monic expressions)
 * Can divide any two polynomials regardless of power, although reasonable division (aka dividend's degree > divisor's degree & degrees <1000 recommended)
 * Chart automatically resizes based off of coefficients
@@ -21,7 +20,7 @@ The purpose of this application is to allow a user to find the quotient when div
 * Developed in Java (multi-platform)
 * JavaDoced Index files for program documentation
 
-#OOP Design:
+##OOP Design
 ###Solver class:
 Solves by returning three Arrays (one 1D, two 2D)
 Analyzes arrays, then returns developed Object[][] array to be represented on JTable
@@ -34,8 +33,14 @@ Acts as a term class to develop the JFrame
 Sets up the JPanel (extends it), handles actions, and handles all visual representation in terms of setting up the JTable
 The other classes are smaller / insignificant in the larger spectrum. 
 
-#Known issues:
+##Known issues
 Sometimes may be unstable if the dividend's degree is smaller than the degree of the divisor (however the program still formulates the table) resulting in a odd remainder. 
+
+##How to run
+Simply run the `SyntheticApp.java` file. If you want to run the app through terminal, run `SyntheticConsole.java`.
+
+##Documentation
+Feel free to check the JavaDoc documentation in `doc/` folder.
 
 ##YouTube Demonstration:
 [Click here](https://www.youtube.com/watch?v=G-ySgKVjx-Y)

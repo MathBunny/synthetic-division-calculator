@@ -41,6 +41,7 @@ public class Solver{
   private static void printAns(double [] [] board, double [] multiSide, double [][] res){
     
     try{
+      System.out.println(q + " | " + r);
       PrintWriter out = new PrintWriter(new FileWriter(SyntheticApp.name + ".txt"));
       out.println("Horatiu Lazu - Synthetic Division Table");
       out.println("Command: Divide " + SyntheticApp.div1 + " by: " + SyntheticApp.div2 + ".");
