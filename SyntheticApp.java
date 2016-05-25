@@ -253,8 +253,8 @@ public class SyntheticApp extends JPanel implements ActionListener{
           }
           
           if (Utility.findGreatestExponent(divisor) > 2){
-            JOptionPane.showMessageDialog (null, "Error: You cannot divide by a non-quadratic in this version.", "Error: Divisor degree is too large", JOptionPane.WARNING_MESSAGE); 
-            return;
+            JOptionPane.showMessageDialog (null, "Notice: Division by degrees over 2 are not recommended.", "Error: Divisor degree is too large", JOptionPane.WARNING_MESSAGE); 
+            //return;
           }
           
           Solver.solveEquation(divident, divisor, false, true);
