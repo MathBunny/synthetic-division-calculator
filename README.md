@@ -36,14 +36,14 @@ The other classes are smaller / insignificant in the larger spectrum.
 ## Known issues
 Sometimes may be unstable if the dividend's degree is smaller than the degree of the divisor (however the program still formulates the table) resulting in a odd remainder. 
 
-##How to run
+## How to run
 Simply run the `SyntheticApp.java` file. If you want to run the app through terminal, run `SyntheticConsole.java`.
 
-##Documentation
+## Documentation
 Feel free to check the JavaDoc documentation in `doc/` folder.
 
-##YouTube Demonstration:
+## YouTube Demonstration:
 [Click here](https://www.youtube.com/watch?v=G-ySgKVjx-Y)
 
-##Screenshot:
+## Screenshot:
 ![Screenshot](http://horatiulazu.ca/software/images/SyntheticDivision.png "Screenshot")
